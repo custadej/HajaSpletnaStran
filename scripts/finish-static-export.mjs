@@ -39,20 +39,28 @@ writeFileSync(join(out, ".nojekyll"), "");
 // `__next.<segment>/__PAGE__.txt`, but the client requests the flat name
 // `__next.<segment>.__PAGE__.txt`. Add the flat copies so prefetching does not 404.
 let copies = 0;
+/** Every file below `dir`, as [relativePathParts]. */
+function filesBelow(dir, parts = []) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? filesBelow(join(dir, e.name), [...parts, e.name]) : [[...parts, e.name]],
+  );
+}
 function flattenSegments(dir) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = join(dir, entry.name);
     if (!entry.isDirectory()) continue;
+    const full = join(dir, entry.name);
     if (entry.name.startsWith("__next.")) {
-      for (const f of readdirSync(full)) {
-        const target = join(dir, `${entry.name}.${f}`);
+      // e.g. __next.$d$locale/kontakt/__PAGE__.txt -> __next.$d$locale.kontakt.__PAGE__.txt
+      for (const parts of filesBelow(full)) {
+        const target = join(dir, [entry.name, ...parts].join("."));
         if (!existsSync(target)) {
-          copyFileSync(join(full, f), target);
+          copyFileSync(join(full, ...parts), target);
           copies++;
         }
       }
+    } else {
+      flattenSegments(full);
     }
-    flattenSegments(full);
   }
 }
 flattenSegments(out);
