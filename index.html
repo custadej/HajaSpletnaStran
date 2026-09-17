@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<title>HAJA d.o.o.</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="1; url=/HajaSpletnaStran/sl/">
+<script>
+(function () {
+  var langs = (navigator.languages || [navigator.language || "en"]).map(function (l) { return l.slice(0, 2).toLowerCase(); });
+  var target = "en";
+  for (var i = 0; i < langs.length; i++) {
+    if (langs[i] === "sl") { target = "sl"; break; }
+    if (langs[i] === "de") { target = "de"; break; }
+    if (langs[i] === "en") { target = "en"; break; }
+  }
+  location.replace("/HajaSpletnaStran/" + target + "/");
+})();
+</script>
+</head>
+<body></body>
+</html>

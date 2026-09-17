@@ -1,0 +1,43 @@
+1:"$Sreact.fragment"
+2:I[84951,["/HajaSpletnaStran/_next/static/chunks/108w6me6a-w4m.js","/HajaSpletnaStran/_next/static/chunks/1xvm1133a3r9e.js","/HajaSpletnaStran/_next/static/chunks/34vvtcbfty92y.js","/HajaSpletnaStran/_next/static/chunks/309z9kv125b3y.js","/HajaSpletnaStran/_next/static/chunks/0as0m3tvuhv3k.js"],"Reveal"]
+3:I[97367,["/HajaSpletnaStran/_next/static/chunks/0h2qsuyze9ds1.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/HajaSpletnaStran/_next/static/chunks/0h2qsuyze9ds1.js"],"ViewportBoundary"]
+9:I[97367,["/HajaSpletnaStran/_next/static/chunks/0h2qsuyze9ds1.js"],"MetadataBoundary"]
+7:X
+22:X
+22:C
+0:{"buildId":"SFwYxrNrPjsLdj8RS3V50","data":[{"rsc":["$","$1","c",{"children":[[["$","section",null,{"className":"relative overflow-hidden","children":[["$","div",null,{"className":"grid-texture pointer-events-none absolute inset-0","aria-hidden":"true"}],["$","$L2",null,{"className":"container-x relative pt-10 pb-8 lg:pt-14 lg:pb-10","children":["$undefined",["$","h1",null,{"className":"display-xl max-w-[16ch] text-graphite-900","children":"Pravno obvestilo"}],"$undefined","$undefined"]}]]}],["$","article",null,{"className":"container-x prose-legal max-w-3xl pb-24 text-graphite-700","children":[["$","p",null,{"className":"text-sm text-graphite-600","children":"Zadnja posodobitev: 17. 9. 2026"}],[["$","section","Podatki o podjetju",{"children":[["$","h2",null,{"children":"Podatki o podjetju"}],["$","p",null,{"children":["HAJA, sistemi v avtomatizaciji, d.o.o.\nNaraplje 11, 2322 Majšperk, Slovenija\nMatična številka: 8034095000\nDavčna številka: 48233897\nE-pošta: info@haja.si\nTelefon: +386 31 395 374\nOdgovorna oseba: Peter Čuš",false]}]]}],["$","section","Avtorske pravice",{"children":[["$","h2",null,{"children":"Avtorske pravice"}],["$","p",null,{"children":["Vsebina spletnega mesta, besedila, fotografije in grafični elementi so last podjetja HAJA d.o.o. oziroma njihovih avtorjev in so zaščiteni z avtorskim pravom. Kopiranje, razmnoževanje ali uporaba v komercialne namene brez pisnega dovoljenja ni dovoljena. Blagovne znamke Allen-Bradley, Siemens, Beckhoff, Fanuc in druge so last njihovih lastnikov in so navedene izključno za opis opreme, s katero delamo.",false]}]]}],["$","section","Omejitev odgovornosti",{"children":[["$","h2",null,{"children":"Omejitev odgovornosti"}],["$","p",null,{"children":["Vsebine na spletnem mestu so informativne narave. Trudimo se, da so točne in ažurne, vendar ne odgovarjamo za morebitne napake ali za škodo, ki bi nastala zaradi uporabe informacij na tej strani. Za povezave na zunanje spletne strani ne odgovarjamo.",false]}]]}],["$","section","Izdelava spletne strani",{"children":[["$","h2",null,{"children":"Izdelava spletne strani"}],["$","p",null,{"children":["Oblikovanje in izdelava: cus.si. Vse pravice do zasnove, kode in oblikovanja spletnega mesta so pridržane.",[" ",["$","a",null,{"href":"https://cus.si","target":"_blank","rel":"noopener","children":"cus.si"}]]]}]]}]]]}]],[["$","script","script-0",{"src":"/HajaSpletnaStran/_next/static/chunks/0as0m3tvuhv3k.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0c172e"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Pravno obvestilo – HAJA d.o.o."}],["$","meta","1",{"name":"description","content":"Podatki o podjetju HAJA, sistemi v avtomatizaciji, d.o.o., avtorske pravice in omejitev odgovornosti."}],["$","meta","2",{"name":"application-name","content":"HAJA d.o.o."}],["$","link","3",{"rel":"author","href":"https://cus.si"}],["$","meta","4",{"name":"author","content":"cus.si"}],["$","link","5",{"rel":"manifest","href":"/HajaSpletnaStran/manifest.webmanifest"}],["$","meta","6",{"name":"creator","content":"cus.si"}],["$","meta","7",{"name":"publisher","content":"HAJA, sistemi v avtomatizaciji, d.o.o."}],["$","meta","8",{"name":"robots","content":"index, follow"}],["$","link","9",{"rel":"canonical","href":"https://custadej.github.io/HajaSpletnaStran/sl/pravno-obvestilo/"}],["$","link","10",{"rel":"alternate","hrefLang":"sl-SI","href":"https://custadej.github.io/HajaSpletnaStran/sl/pravno-obvestilo/"}],["$","link","11",{"rel":"alternate","hrefLang":"en","href":"https://custadej.github.io/HajaSpletnaStran/en/pravno-obvestilo/"}],["$","link","12",{"rel":"alternate","hrefLang":"de","href":"https://custadej.github.io/HajaSpletnaStran/de/pravno-obvestilo/"}],["$","link","13",{"rel":"alternate","hrefLang":"x-default","href":"https://custadej.github.io/HajaSpletnaStran/sl/pravno-obvestilo/"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d"]}]}]}],"$L1e"]}],"isPartial":"$@1f","staleTime":"$7","varyParams":null},{"rsc":"$L20","isPartial":"$@21","staleTime":"$7","varyParams":"$22"}],"isUpgradeableISRFallback":false,"a":"$@23","rootVaryParams":null,"needsRuntimeRequest":"$@24"}
+25:I[27201,["/HajaSpletnaStran/_next/static/chunks/0h2qsuyze9ds1.js"],"IconMark"]
+26:I[39756,["/HajaSpletnaStran/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+27:I[37457,["/HajaSpletnaStran/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+5:null
+a:["$","meta","14",{"property":"og:title","content":"Pravno obvestilo"}]
+b:["$","meta","15",{"property":"og:description","content":"Podatki o podjetju HAJA, sistemi v avtomatizaciji, d.o.o., avtorske pravice in omejitev odgovornosti."}]
+c:["$","meta","16",{"property":"og:url","content":"https://custadej.github.io/HajaSpletnaStran/sl/pravno-obvestilo/"}]
+d:["$","meta","17",{"property":"og:site_name","content":"HAJA d.o.o."}]
+e:["$","meta","18",{"property":"og:locale","content":"sl_SI"}]
+f:["$","meta","19",{"property":"og:image","content":"https://custadej.github.io/HajaSpletnaStran/og.jpg"}]
+10:["$","meta","20",{"property":"og:image:width","content":"1200"}]
+11:["$","meta","21",{"property":"og:image:height","content":"630"}]
+12:["$","meta","22",{"property":"og:image:alt","content":"HAJA d.o.o."}]
+13:["$","meta","23",{"property":"og:locale:alternate","content":"en_GB"}]
+14:["$","meta","24",{"property":"og:locale:alternate","content":"de_DE"}]
+15:["$","meta","25",{"property":"og:type","content":"website"}]
+16:["$","meta","26",{"name":"twitter:card","content":"summary_large_image"}]
+17:["$","meta","27",{"name":"twitter:title","content":"Pravno obvestilo"}]
+18:["$","meta","28",{"name":"twitter:description","content":"Podatki o podjetju HAJA, sistemi v avtomatizaciji, d.o.o., avtorske pravice in omejitev odgovornosti."}]
+19:["$","meta","29",{"name":"twitter:image","content":"https://custadej.github.io/HajaSpletnaStran/og.jpg"}]
+1a:["$","link","30",{"rel":"icon","href":"/HajaSpletnaStran/favicon.ico","sizes":"32x32"}]
+1b:["$","link","31",{"rel":"icon","href":"/HajaSpletnaStran/favicon.png","type":"image/png","sizes":"60x60"}]
+1c:["$","link","32",{"rel":"apple-touch-icon","href":"/HajaSpletnaStran/apple-icon.png","sizes":"180x180"}]
+1d:["$","$L25","33",{}]
+1e:["$","meta",null,{"name":"next-size-adjust","content":""}]
+20:["$","$1","c",{"children":[null,["$","$L26",null,{"parallelRouterKey":"children","template":["$","$L27",null,{}]}]]}]
+24:true
+7:300
+7:C
+23:0
+1f:"$undefined"
+21:"$undefined"
+6:"$undefined"
