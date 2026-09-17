@@ -1,7 +1,7 @@
 // Post-processing for the static export (GitHub Pages demo):
 // - writes a root index.html that sends the visitor to their language,
 // - adds .nojekyll so files starting with "_" (Next assets) are served.
-import { writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { writeFileSync, existsSync, mkdirSync, readdirSync, copyFileSync } from "node:fs";
 import { join } from "node:path";
 
 const basePath = (process.argv[2] || "").replace(/\/$/, "");
@@ -34,4 +34,26 @@ const html = `<!doctype html>
 
 writeFileSync(join(out, "index.html"), html);
 writeFileSync(join(out, ".nojekyll"), "");
-console.log("Static export finished: root redirect + .nojekyll written to", out);
+
+// With trailingSlash the export writes segment prefetch data as
+// `__next.<segment>/__PAGE__.txt`, but the client requests the flat name
+// `__next.<segment>.__PAGE__.txt`. Add the flat copies so prefetching does not 404.
+let copies = 0;
+function flattenSegments(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (!entry.isDirectory()) continue;
+    if (entry.name.startsWith("__next.")) {
+      for (const f of readdirSync(full)) {
+        const target = join(dir, `${entry.name}.${f}`);
+        if (!existsSync(target)) {
+          copyFileSync(join(full, f), target);
+          copies++;
+        }
+      }
+    }
+    flattenSegments(full);
+  }
+}
+flattenSegments(out);
+console.log(`Static export finished: root redirect + .nojekyll written to ${out}, ${copies} prefetch files flattened`);
