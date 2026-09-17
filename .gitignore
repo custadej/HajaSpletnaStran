@@ -50,3 +50,4 @@ CLAUDE.md
 # static demo build
 /.next-static/
 /.pages-aside/
+/.pages-build/

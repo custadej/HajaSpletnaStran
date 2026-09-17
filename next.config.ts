@@ -18,7 +18,6 @@ const nextConfig: NextConfig = {
   ...(isStatic
     ? {
         output: "export",
-        distDir: ".next-static",
         trailingSlash: true,
         basePath,
         images: { loader: "custom", loaderFile: "./src/lib/image-loader.ts" },
