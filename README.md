@@ -1,94 +1,97 @@
-# HAJA d.o.o. – spletna stran
+# HAJA d.o.o. – website
 
-Prenovljena spletna stran podjetja **HAJA, sistemi v avtomatizaciji, d.o.o.** (www.haja.si).
-Izdelava: [cus.si](https://cus.si).
+Redesign of the website of **HAJA, sistemi v avtomatizaciji, d.o.o.** (www.haja.si), an industrial automation company from Slovenia.
+Design and development: [cus.si](https://cus.si).
 
-## Tehnologija
+Live preview: https://custadej.github.io/HajaSpletnaStran/
 
-| Del | Rešitev |
+## Stack
+
+| Part | Solution |
 | --- | --- |
-| Ogrodje | Next.js 16 (App Router, React 19, TypeScript) |
-| Slog | Tailwind CSS 4, lastni oblikovni žetoni v `src/app/globals.css` |
-| Animacije | [motion](https://motion.dev) (`motion/react`) |
-| Jeziki | next-intl – slovenščina (`/sl`), angleščina (`/en`), nemščina (`/de`) z lokaliziranimi URL-ji |
-| Kontaktni obrazec | API pot `/api/contact` + nodemailer (SMTP) |
-| Analitika | Google Analytics 4, naložena šele po privolitvi (Consent Mode v2) |
-| SEO | canonical + hreflang za vsak jezik, `sitemap.xml`, `robots.txt`, Open Graph slika, JSON-LD (Organization / ProfessionalService) |
+| Framework | Next.js 16 (App Router, React 19, TypeScript) |
+| Styling | Tailwind CSS 4 with custom design tokens in `src/app/globals.css` |
+| Animations | [motion](https://motion.dev) (`motion/react`): hero collage with 3D tilt and parallax, scroll reveals, counters, photo marquee, lightbox |
+| Languages | next-intl – Slovenian (`/sl`), English (`/en`), German (`/de`) with localized URLs |
+| Contact form | API route `/api/contact` + nodemailer (SMTP), honeypot and rate limiting |
+| Analytics | Google Analytics 4, loaded only after consent (Consent Mode v2) |
+| SEO | canonical + hreflang for every language, `sitemap.xml`, `robots.txt`, Open Graph image, JSON-LD (Organization / ProfessionalService), 301 redirects from the old WordPress URLs |
 
-## Zagon
+## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local   # izpolnite SMTP in URL
+cp .env.example .env.local   # fill in SMTP and the site URL
 npm run dev                  # http://localhost:3000
 ```
 
-Produkcija:
+Production:
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Okoljske spremenljivke
+## Environment variables
 
-Glej `.env.example`:
+See `.env.example`:
 
-- `NEXT_PUBLIC_SITE_URL` – javni URL strani (za canonical, sitemap, OG).
-- `NEXT_PUBLIC_GA_ID` – GA4 ID (`G-…`). Če je prazen, se analitika ne naloži.
-- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS` – SMTP za pošiljanje povpraševanj.
-- `CONTACT_TO` – prejemnik povpraševanj (privzeto info@haja.si).
-- `CONTACT_FROM` – pošiljatelj (mora biti dovoljen pri SMTP ponudniku).
+- `NEXT_PUBLIC_SITE_URL` – public URL of the site (canonical URLs, sitemap, Open Graph).
+- `NEXT_PUBLIC_GA_ID` – GA4 measurement ID (`G-…`). Analytics is not loaded when empty.
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS` – SMTP account used to send enquiries.
+- `CONTACT_TO` – recipient of enquiries (defaults to info@haja.si).
+- `CONTACT_FROM` – sender address (must be allowed by the SMTP provider).
 
-Brez nastavljenega SMTP obrazec vrne napako 503 in obiskovalcu prikaže neposredni e-naslov.
+Without SMTP settings the form returns 503 and shows the visitor the direct e-mail address instead.
 
-## Jeziki in zaznavanje
+## Languages and detection
 
-`src/proxy.ts` izbere jezik po vrstnem redu:
+`src/proxy.ts` picks the language in this order:
 
-1. jezik v URL-ju (`/sl`, `/en`, `/de`),
-2. shranjena izbira obiskovalca (piškotek `haja_locale`, 12 mesecev),
-3. država obiskovalca iz glave gostitelja (`x-vercel-ip-country`, `cf-ipcountry`): SI → sl, DE/AT/CH/LI → de,
-4. `Accept-Language` brskalnika,
-5. sicer angleščina.
+1. locale prefix in the URL (`/sl`, `/en`, `/de`),
+2. the visitor's saved choice (cookie `haja_locale`, 12 months),
+3. the visitor's country from the hosting platform's geo header (`x-vercel-ip-country`, `cf-ipcountry`): SI → sl, DE/AT/CH/LI → de,
+4. the browser's `Accept-Language`,
+5. otherwise English.
 
-Vsa besedila so v `messages/sl.json`, `messages/en.json`, `messages/de.json`. Lokalizirane poti (npr. `/en/services`, `/de/leistungen`) so definirane v `src/i18n/routing.ts`.
+All copy lives in `messages/sl.json`, `messages/en.json` and `messages/de.json`. Localized paths (for example `/en/services`, `/de/leistungen`) are defined in `src/i18n/routing.ts`.
 
-## Struktura
+## Structure
 
 ```
-src/app/[locale]/           strani (domov, storitve, reference, o podjetju, kontakt, pravne strani)
-src/app/api/contact/        pošiljanje kontaktnega obrazca
-src/components/             glava, noga, piškotki, galerija, obrazec, odseki domače strani
-src/lib/site.ts             podatki podjetja (naslov, telefon, matična/davčna številka)
-src/lib/references.ts       seznam fotografij po področjih referenc
-public/images/              fotografije (prenesene s stare strani, brez EXIF podatkov)
+src/app/[locale]/           pages (home, services, references, about, contact, legal pages)
+src/app/api/contact/        contact form endpoint
+src/components/             header, footer, cookie consent, gallery, form, home page sections
+src/lib/site.ts             company data (address, phone, registration and tax numbers)
+src/lib/references.ts       project photos per reference category
+public/images/              photos (taken from the previous site, EXIF stripped)
+scripts/                    static export helpers (GitHub Pages preview)
 ```
 
-## Piškotki in zasebnost
+## Cookies and privacy
 
-- Pasica s piškotki z možnostmi »Sprejmi vse«, »Samo nujni« in nastavitvami po kategorijah.
-- Izbira se hrani v piškotku `haja_consent` (12 mesecev); nastavitve je mogoče kadar koli spremeniti v nogi strani.
-- Strani: Piškotki, Politika zasebnosti, Pravno obvestilo (v vseh treh jezikih). Datum zadnje posodobitve je v `src/lib/legal.ts`.
+- Cookie banner with "Accept all", "Necessary only" and per-category settings.
+- The choice is stored in the `haja_consent` cookie (12 months) and can be changed any time from the footer.
+- Pages: Cookies, Privacy policy, Legal notice (in all three languages). The "last updated" date is in `src/lib/legal.ts`.
 
-## Namestitev
+## Deployment
 
-Projekt je pripravljen za Vercel (gostovanje z geo glavami za zaznavanje države) ali kateri koli Node.js strežnik (`npm run build && npm run start`). Za lastno gostovanje za Cloudflare proxyjem deluje zaznavanje države prek `cf-ipcountry`.
+The project is ready for Vercel (geo headers for country detection) or any Node.js server (`npm run build && npm run start`). Behind a Cloudflare proxy, country detection works through `cf-ipcountry`.
 
-## Predogled na GitHub Pages
+## GitHub Pages preview
 
-Statični predogled se objavi na vejo `gh-pages` z ukazom:
+A static preview is published to the `gh-pages` branch with:
 
 ```bash
 npm run deploy:pages
 ```
 
-(Vzorec delovnega toka za samodejno objavo ob vsakem pushu je v `scripts/github-pages.workflow.yml`; za uporabo ga premaknite v `.github/workflows/`, žeton GitHub CLI pa potrebuje pravico `workflow`.)
+(A workflow for automatic deployment on every push is provided in `scripts/github-pages.workflow.yml`; move it to `.github/workflows/` to use it. The GitHub CLI token needs the `workflow` scope for that.)
 
-Statična različica je namenjena predstavitvi:
+The static preview is meant for demonstration only:
 
-- jezik se izbere v brskalniku (brez zaznavanja države), naslovi so za vse jezike enaki (`/en/storitve` namesto `/en/services`),
-- kontaktni obrazec odpre e-poštni odjemalec (`mailto:`) namesto pošiljanja prek strežnika,
-- slike niso optimizirane na strežniku.
+- the language is picked in the browser (no country detection) and URLs are the same for every language (`/en/storitve` instead of `/en/services`),
+- the contact form opens the visitor's mail client (`mailto:`) instead of sending through the server,
+- images are not optimized on the server.
 
-Za pravo objavo pri naročniku uporabite navadni `npm run build` (Vercel ali Node.js strežnik), kjer delujeta zaznavanje jezika in pošiljanje obrazca.
+For the real deployment use the normal `npm run build` (Vercel or a Node.js server), where language detection and form delivery work.
